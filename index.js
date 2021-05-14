@@ -4,5 +4,5 @@ require("dotenv").config();
 const PORT = process.env.PORT || 4000;
 
 server.listen(PORT, () => {
-  console.log(`\n Tuned in and listening to port ${PORT} \n`);
+  console.log(`\n Tuned in and listening on port ${PORT} \n`);
 });
