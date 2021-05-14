@@ -4,7 +4,11 @@ exports.getAllTasks = () => db("tasks");
 
 exports.insertTask = (task) => db("tasks").insert(task);
 
-exports.getTaskById = (id) => db("tasks").where("task_id", id);
+exports.getTaskById = async (id) => {
+  const task = await db("tasks").where("task_id", id);
+  task.task_completed = !!task.task_completed;
+  return task;
+};
 
 exports.insertTask = async (task) => {
   const newID = await db("tasks").insert(task);
